@@ -6,4 +6,4 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-client.login('your-token-goes-here');
+client.login('token');
