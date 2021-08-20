@@ -1,7 +1,7 @@
 // require the needed discord.js classes
 const { Client, Intents } = require('discord.js');
 const { fs } = require('fs');
-
+console.log("hello");
 // create a new Discord client
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
