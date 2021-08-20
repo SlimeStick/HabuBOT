@@ -1,5 +1,6 @@
 // require the needed discord.js classes
 const { Client, Intents } = require('discord.js');
+const { fs } = require('fs');
 
 // create a new Discord client
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
@@ -11,9 +12,8 @@ client.once('ready', () => {
 });
 
 // login to Discord with your app's token
-
-let fs = require('fs')
-token = fs.readFile("../token.txt", 'utf8', function(err, token){
+fs.readFile("./../token.txt", function(err, token){
+    console.log(token);
 	client.login(token);
 });
 
