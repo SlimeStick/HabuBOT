@@ -2,7 +2,7 @@ module.exports = {
     name: "roll",
     description: "rolls a number between the given range(inclusive)",
     execute(msg ,args, client){
-        if(args != 2){
+        if(args.length != 2){
             msg.reply("too much arguments or too few");
             return;
         }
