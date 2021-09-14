@@ -7,13 +7,14 @@ module.exports = {
     execute(message, args){
         const request = require("request-promise");
         const cheerio = require("cheerio");
-        let lyrics = ""
-        request( (args.join('+') + " youtube"), (error, respone, html) => {
+        let lyrics = "kziza"
+        request( ("https://www.google.com/search?q=" + args.join('+') + " youtube"), (error, respone, html) => {
             if(!error && respone.statusCode == 200){
                 const $= cheerio.load(html);
-                const list = $("span[jsname=YS01Ge]")
-                list.each((idx, spn) => {
-                    lyrics += $(spn).text()
+                const list = $('span[jsname="YS01Ge"]')
+                list.each((i, spn) => {
+                    const item = $(spn).text()
+                    console.log(item)
                 })
             }
         })
