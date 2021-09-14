@@ -11,5 +11,8 @@ module.exports = {
         if(number1 != NaN && number2 != NaN){
             msg.reply(Math.floor(Math.random() * (number1 - number2)) + number2);
         }
+        else{
+            msg.reply("error");
+        }
     }
 }
