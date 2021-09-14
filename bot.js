@@ -3,11 +3,6 @@ const {token, prefix} = require('./config.json');
 const fs = require('fs');
 
 const client = new Discord.Client();
-
-client.once('ready', () => {
-	console.log('Ready!');
-});
-
 client.commands = new Discord.Collection();
 
 //finding all of the commands
@@ -20,6 +15,10 @@ for(const file of commandFiles)
 	
     client.commands.set(command.name, command);
 }
+
+client.once('ready', () => {
+	console.log('Ready!');
+});
 
 client.on('message', (msg) =>{
     //checking if the bot is in a guild(discord server) and if the message wasn't sent by a bot
@@ -36,7 +35,7 @@ client.on('message', (msg) =>{
             {
                 try
                 {
-                    client.commands.get(command).command(msg, args, client);
+                    client.commands.get(command).execute(msg, args, client);
                 }
                 catch(error)
                 {
